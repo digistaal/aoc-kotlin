@@ -1,16 +1,17 @@
-package day3
+package day3.part1
 
+import day3.Input
 import java.io.File
 
-val DIRECTIONS = mapOf(
-    "UP" to listOf(0, -1),
-    "UP_RIGHT" to listOf(1, -1),
-    "RIGHT" to listOf(1, 0),
-    "RIGHT_DOWN" to listOf(1, 1),
-    "DOWN" to listOf(0, 1),
-    "LEFT_UP" to listOf(-1, -1),
-    "LEFT_DOWN" to listOf(-1, 1),
-    "LEFT" to listOf(-1, 0),
+val DIRECTIONS = listOf(
+    listOf(0, -1),
+    listOf(1, -1),
+    listOf(1, 0),
+    listOf(1, 1),
+    listOf(0, 1),
+    listOf(-1, -1),
+    listOf(-1, 1),
+    listOf(-1, 0),
 )
 
 fun isSymbol(char: Char): Boolean {
@@ -30,7 +31,7 @@ fun get(input: Input, x: Int, y: Int): Char? {
 fun isPositionAdjacentToSymbol(currentX: Int, currentY: Int, input: Input): Boolean {
     var isAdjacent = false
 
-    DIRECTIONS.values.forEach {
+    DIRECTIONS.forEach {
         val (xOffset, yOffset) = it
         val adjacentChar = get(input, currentX + xOffset, currentY + yOffset)
 
