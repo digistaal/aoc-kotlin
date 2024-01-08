@@ -61,9 +61,9 @@ fun main() {
     var isAdjacentToSymbol = false
     var result = 0;
 
-    File("src/main/kotlin/day3/input.in").forEachLine { line ->
+    input.forEach{ line ->
         line.forEach { char ->
-            val isLastChar = x == line.length - 1
+            val isLastChar = x == line.size - 1
 
 
             if (char.isDigit()) {
